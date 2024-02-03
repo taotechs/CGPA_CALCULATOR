@@ -1,6 +1,6 @@
 // ignore_for_file: library_private_types_in_public_api
 
-import 'package:cgpa/grades_collection_page.dart';
+import 'package:cgpa/screens/grades_collection_page.dart';
 import 'package:flutter/material.dart';
 
 class SemesterPage extends StatefulWidget {
@@ -16,7 +16,7 @@ class _SemesterPageState extends State<SemesterPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 212, 168, 202),
+      backgroundColor: const Color.fromARGB(255, 212, 168, 202),
       appBar: AppBar(
         title: const Text('Number of Semesters'),
       ),

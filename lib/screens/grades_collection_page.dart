@@ -1,5 +1,5 @@
 // ignore_for_file: library_private_types_in_public_api
-import 'package:cgpa/semester_grade_page.dart';
+import 'package:cgpa/screens/semester_grade_page.dart';
 import 'package:flutter/material.dart';
 
 class GradesCollectionPage extends StatefulWidget {
