@@ -1,26 +1,22 @@
 // ignore_for_file: library_private_types_in_public_api
-import 'dart:js';
-
-import 'package:cgpa/screens/taotech.dart';
-import 'package:cgpa/taotech/main.dart';
+import 'package:cgpa/screens/drawerpage.dart';
+import 'package:cgpa/screens/register_page.dart';
+import 'package:cgpa/screens/resetpasswordscreen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'screens/login_page.dart';
 import 'screens/semester_page.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
-final Uri _url = Uri.parse('https://www.taotechsolutions.com');
-void main() {
-  runApp(const MyApp());
-}
-
-Future<void> _launchTaotechWeb() async {
-  if (!await launchUrl(_url)) {
-    throw Exception('Could not launch $_url');
-  }
+Future<void> main() async {
+  runApp(MyApp());
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -29,7 +25,14 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.purple,
       ),
-      home: const HomePage(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const LoginPage(),
+        '/home': (context) => const HomePage(),
+        '/register': (context) => RegisterPage(),
+        '/semester': (context) => const SemesterPage(),
+        '/resetpassword': (context) => ResetPasswordScreen(),
+      },
     );
   }
 }
@@ -44,56 +47,36 @@ class HomePage extends StatelessWidget {
       backgroundColor: const Color.fromARGB(255, 212, 168, 202),
       appBar: AppBar(
         title: const Text(
-          'CGPA Calculator',
+          'CGPA Calcuator',
           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
         ),
         centerTitle: true,
         actions: const [
           Icon(Icons.school),
+          SizedBox(width: 10),
           Icon(Icons.calculate),
         ],
       ),
-      drawer: Drawer(
-        child: ListView(
-          children: [
-            const DrawerHeader(
-              decoration: BoxDecoration(color: Colors.purple),
-              child: Text("Menu"),
-            ),
-            ListTile(
-              title: const Text("LASU Website"),
-              leading: const Icon(Icons.home),
-              onTap: () {},
-            ),
-            ListTile(
-              title: const Text("Taotech Solutions Website"),
-              leading: const Icon(Icons.home),
-              onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => const MyWidget(),),);
-                
-              },
-            ),
-            ListTile(
-              title: const Text("LASU Website"),
-              leading: const Icon(Icons.home),
-              onTap: () {},
-            ),
-          ],
-        ),
-      ),
-      body: Center(
+      drawer: const DrawerPage(),
+      body: Padding(
+        padding: const EdgeInsets.only(top: 100),
         child: ListView(
           children: [
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
                 Container(
-                    alignment: Alignment.center,
-                    child: Image.asset("assets/images/lasutao.png")),
-                const Text(
-                  'Welcome to CGPA Calculator',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                  alignment: Alignment.center,
+                  child: Image.asset("assets/images/lasutao.png"),
                 ),
+                const SizedBox(height: 10),
+                Text(
+                  'Welcome ${FirebaseAuth.instance.currentUser != null ? FirebaseAuth.instance.currentUser!.displayName ?? "" : ""}',
+                  style: const TextStyle(
+                      fontWeight: FontWeight.bold, fontSize: 20),
+                ),
+                const SizedBox(height: 10),
                 ElevatedButton(
                   onPressed: () {
                     Navigator.push(

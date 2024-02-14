@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "107012626434",
+    "project_id": "student-cgpa-calculator",
+    "storage_bucket": "student-cgpa-calculator.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:107012626434:android:859dabf8148ff4e7282f1b",
+        "android_client_info": {
+          "package_name": "com.taotechsolutions.cgpa"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDaX0vH1YvCMknEphdvLXT_cJ6l4ltZ7QM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

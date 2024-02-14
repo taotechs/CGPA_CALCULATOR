@@ -1,4 +1,4 @@
-package com.example.cgpa
+package com.taotechsolutions.cgpa
 
 import io.flutter.embedding.android.FlutterActivity
 
