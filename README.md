@@ -57,6 +57,11 @@ The `SemesterGradesPage` widget represents the page for entering grades and cred
 
 ## Usage Instructions
 
+ **Registration and Login:**
+   - Before accessing the app's functionalities, users must register for an account and log in.
+   - Registration ensures data security and personalized user experiences.
+   - Click the "Register" button to create an account and then log in with your credentials.
+
 1. **Welcome Screen:**
    - Open the app to see a welcome message.
 
