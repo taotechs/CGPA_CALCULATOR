@@ -4,7 +4,7 @@
 
 The CGPA Calculator app is a powerful tool designed to help students calculate their Cumulative Grade Point Average (CGPA) based on grades and credits earned in multiple semesters. The app offers a user-friendly interface for entering academic information and provides a seamless experience for calculating and tracking CGPA.
 ## App Homepage Screenshot
-![CGPA Calculator App](https://github.com/taotechs/CGPA_CALCULATOR/blob/main/Screenshot%202024-01-22%20230408.png)
+![CGPA Calculator App](https://github.com/taotechs/CGPA_CALCULATOR/blob/main/download.png)
 
 ## App Components
 
